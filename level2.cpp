@@ -711,12 +711,12 @@ int main()
 	setStarVariables();
 	iSetTimer(10000, Initialize_eb_once);
 	iSetTimer(75, change);
-	iSetTimer(60000, Initialize_cloud2_once);
+	iSetTimer(40000, Initialize_cloud2_once);
 	iSetTimer(10000, set_cloud2);
 	iSetTimer(8000, Initialize_cloud3_once);
-	iSetTimer(10000, set_cloud3);
-	iSetTimer(40000, Initialize_cloud4_once);
-	iSetTimer(8000, set_cloud4);
+	iSetTimer(9000, set_cloud3);
+	iSetTimer(20000, Initialize_cloud4_once);
+	iSetTimer(12000, set_cloud4);
 	iSetTimer(12000, Initialize_Gift1_Once);
 	iSetTimer(18000, setGift1);
 	getScore_level2(HScore);
