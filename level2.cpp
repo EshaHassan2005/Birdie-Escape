@@ -111,14 +111,14 @@ void update_EnemyBird()
 
 struct Enemybird
 {
-	signed int eb_x;
+	int eb_x;
 	int eb_y;
 	bool eb_show;
 } eb;
 
 struct Clouds
 {
-	signed int cl_x;
+	int cl_x;
 	int cl_y;
 	bool cl_show;
 } cl2, cl3, cl4;
@@ -401,9 +401,10 @@ void change()
 	int eb_rx = eb.eb_x + 110;
 	int eb_ly = eb.eb_y + 50;
 	int eb_uy = eb.eb_y + 102;
-	if ((((x + 45) >= (eb_lx) && (x + 45) <= (eb_rx)) || ((x + 145) >= (eb_lx) && (x + 145) <= (eb_rx)) || ((x + 86) >= (eb_lx) && (x + 86) <= (eb_rx))) && (((y + 30) >= (eb_ly) && (y + 30) <= (eb_uy)) || ((y + 140) >= (eb_ly) && (y + 140) <= (eb_uy)) || ((y + 58) >= (eb_ly) && (y + 58) <= (eb_uy))))
+	if ((((x + 45) >= (eb_lx) && (x + 45) <= (eb_rx)) || ((x + 145) >= (eb_lx) && (x + 145) <= (eb_rx)) || ((x + 100) >= (eb_lx) && (x + 100) <= (eb_rx))) && (((y + 30) >= (eb_ly) && (y + 30) <= (eb_uy)) || ((y + 140) >= (eb_ly) && (y + 140) <= (eb_uy)) || ((y + 80) >= (eb_ly) && (y + 80) <= (eb_uy))))
 	{
 		playSound("E:\\Games\\Music\\BirdCollided.wav");
+		printf("collided with bird");
 		gameOver = 1;
 	}
 
@@ -424,21 +425,23 @@ void change()
 			eb.eb_show = true;
 	}
 
-	int cl2_lx = cl2.cl_x + 10;
-	int cl2_rx = cl2.cl_x + 240;
-	int cl2_ly = cl2.cl_y + 40;
-	int cl2_uy = cl2.cl_y + 165;
-	if ((((x + 30) >= (cl2_lx) && (x + 30) <= (cl2_rx)) || ((x + 152) >= (cl2_lx) && (x + 152) <= (cl2_rx))) && (((y + 30) >= (cl2_ly) && (y + 30) <= (cl2_uy)) || ((y + 135) >= (cl2_ly) && (y + 135) <= (cl2_uy))))
+	int cl2_lx = cl2.cl_x + 28;
+	int cl2_rx = cl2.cl_x + 230;
+	int cl2_ly = cl2.cl_y + 50;
+	int cl2_uy = cl2.cl_y + 160;
+	if ((((x + 45) >= (cl2_lx) && (x + 45) <= (cl2_rx)) || ((x + 145) >= (cl2_lx) && (x + 145) <= (cl2_rx))) && (((y + 30) >= (cl2_ly) && (y + 30) <= (cl2_uy)) || ((y + 135) >= (cl2_ly) && (y + 135) <= (cl2_uy))))
 	{
 		playSound("E:\\Games\\Music\\BirdCollided.wav");
+		printf("collided with cloud 2");
 		gameOver = 1;
+
 	}
 
 	else
 	{
 		if (!flag)
 		{
-			cl2.cl_x += 7;
+			cl2.cl_x += 5;
 			cl2.cl_y += 15;
 		}
 		if (flag_cloud2 && cl2.cl_y >= 0 && cl2.cl_y <= screenHight)
@@ -452,6 +455,7 @@ void change()
 	if ((((x + 30) >= (cl3_lx) && (x + 30) <= (cl3_rx)) || ((x + 152) >= (cl3_lx) && (x + 152) <= (cl3_rx))) && (((y + 30) >= (cl3_ly) && (y + 30) <= (cl3_uy)) || ((y + 135) >= (cl3_ly) && (y + 135) <= (cl3_uy))))
 	{
 		playSound("E:\\Games\\Music\\BirdCollided.wav");
+		printf("collided with cloud 3");
 		gameOver = 1;
 	}
 
@@ -473,6 +477,7 @@ void change()
 	if ((((x + 30) >= (cl4_lx) && (x + 30) <= (cl4_rx)) || ((x + 152) >= (cl4_lx) && (x + 152) <= (cl4_rx))) && (((y + 30) >= (cl4_ly) && (y + 30) <= (cl4_uy)) || ((y + 135) >= (cl4_ly) && (y + 135) <= (cl4_uy))))
 	{
 		playSound("E:\\Games\\Music\\BirdCollided.wav");
+		printf("collided with cloud 4");
 		gameOver = 1;
 	}
 
@@ -620,7 +625,7 @@ void Initialize_cloud2()
 	cl2.cl_x = 100 + rand() % 1000;
 	cl2.cl_y = 0;
 	cl2.cl_show = true;
-	flag_cloud2 = 1;
+	//flag_cloud2 = 1;
 }
 void Initialize_cloud2_once()
 {
@@ -637,7 +642,7 @@ void Initialize_cloud3()
 	cl3.cl_x = 400 + rand() % 1000;
 	cl3.cl_y = screenHight;
 	cl3.cl_show = true;
-	flag_cloud3 = 1;
+	//flag_cloud3 = 1;
 }
 void Initialize_cloud3_once()
 {
@@ -654,7 +659,7 @@ void Initialize_cloud4()
 	cl4.cl_x = 100 + rand() % 1200;
 	cl4.cl_y = screenHight;
 	cl4.cl_show = true;
-	flag_cloud4 = 1;
+	//flag_cloud4 = 1;
 }
 void Initialize_cloud4_once()
 {
@@ -713,7 +718,7 @@ int main()
 	setBackground();
 	setStarVariables();
 	iSetTimer(10000, Initialize_eb_once);
-	iSetTimer(75, change);
+	iSetTimer(60, change);
 	iSetTimer(60000, Initialize_cloud2_once);
 	iSetTimer(10000, set_cloud2);
 	iSetTimer(8000, Initialize_cloud3_once);
