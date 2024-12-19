@@ -710,7 +710,7 @@ int main()
 	setBackground();
 	setStarVariables();
 	iSetTimer(10000, Initialize_eb_once);
-	iSetTimer(60, change);
+	iSetTimer(75, change);
 	iSetTimer(60000, Initialize_cloud2_once);
 	iSetTimer(10000, set_cloud2);
 	iSetTimer(8000, Initialize_cloud3_once);
