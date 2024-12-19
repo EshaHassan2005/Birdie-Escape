@@ -404,7 +404,6 @@ void change()
 	if ((((x + 45) >= (eb_lx) && (x + 45) <= (eb_rx)) || ((x + 145) >= (eb_lx) && (x + 145) <= (eb_rx)) || ((x + 100) >= (eb_lx) && (x + 100) <= (eb_rx))) && (((y + 30) >= (eb_ly) && (y + 30) <= (eb_uy)) || ((y + 140) >= (eb_ly) && (y + 140) <= (eb_uy)) || ((y + 80) >= (eb_ly) && (y + 80) <= (eb_uy))))
 	{
 		playSound("E:\\Games\\Music\\BirdCollided.wav");
-		printf("collided with bird");
 		gameOver = 1;
 	}
 
@@ -432,9 +431,7 @@ void change()
 	if ((((x + 45) >= (cl2_lx) && (x + 45) <= (cl2_rx)) || ((x + 145) >= (cl2_lx) && (x + 145) <= (cl2_rx))) && (((y + 30) >= (cl2_ly) && (y + 30) <= (cl2_uy)) || ((y + 135) >= (cl2_ly) && (y + 135) <= (cl2_uy))))
 	{
 		playSound("E:\\Games\\Music\\BirdCollided.wav");
-		printf("collided with cloud 2");
 		gameOver = 1;
-
 	}
 
 	else
@@ -455,7 +452,6 @@ void change()
 	if ((((x + 30) >= (cl3_lx) && (x + 30) <= (cl3_rx)) || ((x + 152) >= (cl3_lx) && (x + 152) <= (cl3_rx))) && (((y + 30) >= (cl3_ly) && (y + 30) <= (cl3_uy)) || ((y + 135) >= (cl3_ly) && (y + 135) <= (cl3_uy))))
 	{
 		playSound("E:\\Games\\Music\\BirdCollided.wav");
-		printf("collided with cloud 3");
 		gameOver = 1;
 	}
 
@@ -477,7 +473,6 @@ void change()
 	if ((((x + 30) >= (cl4_lx) && (x + 30) <= (cl4_rx)) || ((x + 152) >= (cl4_lx) && (x + 152) <= (cl4_rx))) && (((y + 30) >= (cl4_ly) && (y + 30) <= (cl4_uy)) || ((y + 135) >= (cl4_ly) && (y + 135) <= (cl4_uy))))
 	{
 		playSound("E:\\Games\\Music\\BirdCollided.wav");
-		printf("collided with cloud 4");
 		gameOver = 1;
 	}
 
@@ -625,7 +620,6 @@ void Initialize_cloud2()
 	cl2.cl_x = 100 + rand() % 1000;
 	cl2.cl_y = 0;
 	cl2.cl_show = true;
-	//flag_cloud2 = 1;
 }
 void Initialize_cloud2_once()
 {
@@ -642,7 +636,6 @@ void Initialize_cloud3()
 	cl3.cl_x = 400 + rand() % 1000;
 	cl3.cl_y = screenHight;
 	cl3.cl_show = true;
-	//flag_cloud3 = 1;
 }
 void Initialize_cloud3_once()
 {
@@ -659,7 +652,6 @@ void Initialize_cloud4()
 	cl4.cl_x = 100 + rand() % 1200;
 	cl4.cl_y = screenHight;
 	cl4.cl_show = true;
-	//flag_cloud4 = 1;
 }
 void Initialize_cloud4_once()
 {
@@ -730,7 +722,6 @@ int main()
 	getScore_level2(HScore);
 	if (musicOn)
 		PlaySound("E:\\Games\\Music\\level2music1.wav", NULL, SND_LOOP | SND_ASYNC);
-	// iInitialize(screenWidth, screenHight, "TestGame1");
 	iInitialize(screenWidth, screenHight, "Birdie Escape");
 	return 0;
 }
