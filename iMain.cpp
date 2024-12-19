@@ -39,7 +39,7 @@ char HomePage[80] = "E:\\Games\\Home Menu\\Menu6.bmp";
 char HomePage1[80] = "E:\\Games\\Home Menu\\HomePage2.bmp";
 char Exit[80] = "E:\\Games\\Home Menu\\ExitButton.bmp";
 char Exit1[80] = "E:\\Games\\Home Menu\\ExitButton1.bmp";
-char Instruction[80] = "E:\\Games\\Home Menu\\InstructionPage.bmp";
+char Instruction[80] = "E:\\Games\\Home Menu\\Instruction_Page.bmp";
 char Arrow[80] = "E:\\Games\\Home Menu\\Arrow1.bmp";
 char Loading[12][100] = {"E:\\Games\\Home Menu\\Loading\\tile000.bmp", "E:\\Games\\Home Menu\\Loading\\tile001.bmp", "E:\\Games\\Home Menu\\Loading\\tile002.bmp", "E:\\Games\\Home Menu\\Loading\\tile003.bmp",
                          "E:\\Games\\Home Menu\\Loading\\tile004.bmp", "E:\\Games\\Home Menu\\Loading\\tile005.bmp", "E:\\Games\\Home Menu\\Loading\\tile006.bmp", "E:\\Games\\Home Menu\\Loading\\tile007.bmp",
@@ -310,7 +310,7 @@ void iMouseMove(int x, int y)
 
 void iSpecialKeyboard(unsigned char key)
 {
-    if (key == GLUT_KEY_UP)
+    if (key == GLUT_KEY_F2)
     {
 
         if (musicOn)
@@ -356,7 +356,7 @@ int main()
         PlaySound("E:\\Games\\Music\\HomeMenuSound2.wav", NULL, SND_LOOP | SND_ASYNC);
     }
 
-    //iInitialize(screenWidth, screenHight, "TestGame1");
+    // iInitialize(screenWidth, screenHight, "TestGame1");
     iInitialize(screenWidth, screenHight, "Birdie Escape");
     return 0;
 }

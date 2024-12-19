@@ -237,7 +237,7 @@ void iMouseMove(int x, int y)
 
 void iSpecialKeyboard(unsigned char key)
 {
-	if (key == GLUT_KEY_UP)
+	if (key == GLUT_KEY_F2)
 	{
 		if (musicOn)
 		{
@@ -252,15 +252,39 @@ void iSpecialKeyboard(unsigned char key)
 	}
 	else if (key == GLUT_KEY_LEFT)
 	{
+		if (!flag)
+		{
+			x -= 40;
+			Score += 2;
+			isFlapping = true;
+		}
 	}
 	else if (key == GLUT_KEY_RIGHT)
 	{
+		if (!flag)
+		{
+			x += 40;
+			Score += 2;
+			isFlapping = true;
+		}
 	}
-	else if (key == GLUT_KEY_HOME)
+	else if (key == GLUT_KEY_UP)
 	{
+		if (!flag)
+		{
+			y += 80;
+			Score += 2;
+			isFlapping = true;
+		}
 	}
-	else if (key == GLUT_KEY_INSERT)
+	else if (key == GLUT_KEY_DOWN)
 	{
+		if (!flag)
+		{
+			y -= 30;
+			Score += 2;
+			isFlapping = true;
+		}
 	}
 }
 
@@ -522,7 +546,7 @@ int main()
 	getScore_level1(HScore);
 	if (musicOn)
 		PlaySound("E:\\Games\\Music\\level1music1.wav", NULL, SND_LOOP | SND_ASYNC);
-	//iInitialize(screenWidth, screenHight, "TestGame1");
+	// iInitialize(screenWidth, screenHight, "TestGame1");
 	iInitialize(screenWidth, screenHight, "Birdie Escape");
 	return 0;
 }

@@ -194,6 +194,11 @@ void iDraw()
 		iShowBMP2(x, y, bird_flying[flying_idx], 0);
 	}
 
+	if (cl2.cl_show)
+	{
+		iShowBMP2(cl2.cl_x, cl2.cl_y, cloud2, 0);
+	}
+
 	if (cl3.cl_show)
 	{
 		iShowBMP2(cl3.cl_x, cl3.cl_y, cloud3, 0);
@@ -202,11 +207,6 @@ void iDraw()
 	if (cl4.cl_show)
 	{
 		iShowBMP2(cl4.cl_x, cl4.cl_y, cloud4, 0);
-	}
-
-	if (cl2.cl_show)
-	{
-		iShowBMP2(cl2.cl_x, cl2.cl_y, cloud2, 0);
 	}
 
 	if (star.star_show)
@@ -285,7 +285,7 @@ void iMouseMove(int x, int y)
 
 void iSpecialKeyboard(unsigned char key)
 {
-	if (key == GLUT_KEY_UP)
+	if (key == GLUT_KEY_F2)
 	{
 		if (musicOn)
 		{
@@ -300,15 +300,39 @@ void iSpecialKeyboard(unsigned char key)
 	}
 	else if (key == GLUT_KEY_LEFT)
 	{
+		if (!flag)
+		{
+			x -= 40;
+			Score += 2;
+			isFlapping = true;
+		}
 	}
 	else if (key == GLUT_KEY_RIGHT)
 	{
+		if (!flag)
+		{
+			x += 40;
+			Score += 2;
+			isFlapping = true;
+		}
 	}
-	else if (key == GLUT_KEY_HOME)
+	else if (key == GLUT_KEY_UP)
 	{
+		if (!flag)
+		{
+			y += 90;
+			Score += 2;
+			isFlapping = true;
+		}
 	}
-	else if (key == GLUT_KEY_INSERT)
+	else if (key == GLUT_KEY_DOWN)
 	{
+		if (!flag)
+		{
+			y -= 70;
+			Score += 2;
+			isFlapping = true;
+		}
 	}
 }
 void change()
@@ -354,7 +378,7 @@ void change()
 	if (flying_idx1 >= 8)
 		flying_idx1 = 0;
 
-	if (y > (screenHight - 50) || y < 0)
+	if (y > (screenHight - 20) || y < 0 || x > (screenWidth - 150) || x < 0)
 	{
 		playSound("E:\\Games\\Music\\BirdCollided.wav");
 		gameOver = 1;
@@ -374,10 +398,10 @@ void change()
 	// lx = left x, rx = right x, ly = lower y, uy = upper y
 
 	int eb_lx = eb.eb_x + 25;
-	int eb_rx = eb.eb_x + 128;
-	int eb_ly = eb.eb_y + 45;
+	int eb_rx = eb.eb_x + 110;
+	int eb_ly = eb.eb_y + 50;
 	int eb_uy = eb.eb_y + 102;
-	if ((((x + 45) >= (eb_lx) && (x + 45) <= (eb_rx)) || ((x + 145) >= (eb_lx) && (x + 145) <= (eb_rx)) || ((x + 80) >= (eb_lx) && (x + 80) <= (eb_rx))) && (((y + 30) >= (eb_ly) && (y + 30) <= (eb_uy)) || ((y + 140) >= (eb_ly) && (y + 140) <= (eb_uy)) || ((y + 75) >= (eb_ly) && (y + 75) <= (eb_uy))))
+	if ((((x + 45) >= (eb_lx) && (x + 45) <= (eb_rx)) || ((x + 145) >= (eb_lx) && (x + 145) <= (eb_rx)) || ((x + 86) >= (eb_lx) && (x + 86) <= (eb_rx))) && (((y + 30) >= (eb_ly) && (y + 30) <= (eb_uy)) || ((y + 140) >= (eb_ly) && (y + 140) <= (eb_uy)) || ((y + 58) >= (eb_ly) && (y + 58) <= (eb_uy))))
 	{
 		playSound("E:\\Games\\Music\\BirdCollided.wav");
 		gameOver = 1;
@@ -701,7 +725,7 @@ int main()
 	getScore_level2(HScore);
 	if (musicOn)
 		PlaySound("E:\\Games\\Music\\level2music1.wav", NULL, SND_LOOP | SND_ASYNC);
-	//iInitialize(screenWidth, screenHight, "TestGame1");
+	// iInitialize(screenWidth, screenHight, "TestGame1");
 	iInitialize(screenWidth, screenHight, "Birdie Escape");
 	return 0;
 }
